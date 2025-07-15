@@ -1,106 +1,152 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Portal de Proveedores - Grupo Páramo</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
   <style>
-    /* Reset básico */
-    * {
+    :root {
+      --color-primary: #b79b50;
+      --color-primary-dark: #8a753b;
+      --color-bg: #fafafa;
+      --color-white: #ffffff;
+      --color-gray-light: #e0e0e0;
+      --color-gray: #666666;
+      --font-sans: 'Inter', sans-serif;
+    }
+    *, *::before, *::after {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
     }
-
     body {
-      font-family: 'Helvetica Neue', Arial, sans-serif;
-      background-color: #ffffff;
-      color: #333333;
+      font-family: var(--font-sans);
+      background-color: var(--color-bg);
+      color: #333;
       line-height: 1.6;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
     }
-
     header {
-      background-color: #ffffff;
-      color: #000000;
-      padding: 30px 20px;
-      text-align: center;
-      border-bottom: 1px solid #e0e0e0;
+      background-color: var(--color-white);
+      border-bottom: 1px solid var(--color-gray-light);
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
-
-    header h1 {
-      font-size: 2.5rem;
-      margin-bottom: 10px;
-      font-weight: bold;
-    }
-
-    header p {
-      font-size: 1rem;
-      color: #666666;
-    }
-
-    main {
-      max-width: 900px;
-      margin: 40px auto;
-      padding: 20px;
-      background-color: #fafafa;
-      border: 1px solid #e0e0e0;
-      border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-    }
-
-    main h2 {
-      margin-bottom: 20px;
-      color: #000000;
-      text-align: center;
+    header .logo {
       font-size: 1.5rem;
-    }
-
-    iframe {
-      width: 100%;
-      height: 600px;
-      border: none;
-    }
-
-    footer {
-      text-align: center;
-      padding: 20px;
-      background-color: #ffffff;
-      color: #999999;
-      border-top: 1px solid #e0e0e0;
-      font-size: 0.9rem;
-    }
-
-    /* Enlace opcional a la página principal */
-    .home-link {
-      display: inline-block;
-      margin-top: 20px;
-      font-size: 0.9rem;
-      color: #b79b50;
+      font-weight: 700;
+      color: #000;
       text-decoration: none;
-      border-bottom: 1px solid #b79b50;
+    }
+    header nav a {
+      margin-left: 1.5rem;
+      text-decoration: none;
+      font-weight: 600;
+      color: var(--color-gray);
       transition: color 0.3s;
     }
-
-    .home-link:hover {
-      color: #8a753b;
+    header nav a:hover {
+      color: #000;
+    }
+    main {
+      flex: 1;
+      max-width: 900px;
+      width: 100%;
+      margin: 2rem auto;
+      padding: 1rem;
+    }
+    .hero {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .hero h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #000;
+      margin-bottom: 0.5rem;
+    }
+    .hero p {
+      font-size: 1rem;
+      color: var(--color-gray);
+    }
+    .form-container {
+      background-color: var(--color-white);
+      border: 1px solid var(--color-gray-light);
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      overflow: hidden;
+    }
+    .form-responsive {
+      position: relative;
+      width: 100%;
+      padding-top: 56.25%; /* 16:9 Aspect Ratio */
+    }
+    .form-responsive iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    .back-link {
+      display: inline-block;
+      margin-top: 1.5rem;
+      font-size: 0.9rem;
+      color: var(--color-primary);
+      text-decoration: none;
+      border-bottom: 1px solid var(--color-primary);
+      transition: color 0.3s;
+    }
+    .back-link:hover {
+      color: var(--color-primary-dark);
+    }
+    footer {
+      background-color: var(--color-white);
+      text-align: center;
+      padding: 1rem;
+      border-top: 1px solid var(--color-gray-light);
+      font-size: 0.9rem;
+      color: var(--color-gray);
+    }
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      header nav {
+        margin-top: 0.5rem;
+      }
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>Portal de Proveedores</h1>
-    <p>Radicación de Facturas</p>
+    <a href="https://www.paramopresenta.com/" class="logo">Grupo Páramo</a>
+    <nav>
+      <a href="https://www.paramopresenta.com/">Inicio</a>
+      <a href="#">Portal Proveedores</a>
+    </nav>
   </header>
   <main>
-    <h2>Envía tus facturas de manera segura</h2>
-    <iframe class="airtable-embed"
-            src="https://airtable.com/embed/appxk6WzoRfH7WKhG/pagIGRh8Xtj6atU89/form"
-            frameborder="0"
-            onmousewheel=""
-            style="background: transparent; border: 1px solid #ccc;">
-    </iframe>
+    <section class="hero">
+      <h1>Portal de Proveedores</h1>
+      <p>Envía tus facturas de manera segura y rápida</p>
+    </section>
+    <section class="form-container">
+      <div class="form-responsive">
+        <iframe src="https://airtable.com/embed/appxk6WzoRfH7WKhG/pagIGRh8Xtj6atU89/form"
+                title="Embed de radicación de facturas"></iframe>
+      </div>
+    </section>
     <div style="text-align: center;">
-      <a class="home-link" href="https://www.paramopresenta.com/" target="_blank">
+      <a class="back-link" href="https://www.paramopresenta.com/" target="_blank">
         ← Volver al sitio principal
       </a>
     </div>
