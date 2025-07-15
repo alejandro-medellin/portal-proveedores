@@ -7,14 +7,15 @@
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
   <style>
+    /* Variables de tema */
     :root {
-      --color-primary: #b79b50;
-      --color-primary-dark: #8a753b;
-      --color-bg: #fafafa;
-      --color-white: #ffffff;
-      --color-gray-light: #e0e0e0;
-      --color-gray: #666666;
-      --font-sans: 'Inter', sans-serif;
+      --primary: #b79b50;
+      --primary-dark: #8a753b;
+      --bg-light: #fafafa;
+      --bg-white: #ffffff;
+      --gray-light: #e0e0e0;
+      --gray: #666666;
+      --font: 'Inter', sans-serif;
     }
     *, *::before, *::after {
       box-sizing: border-box;
@@ -22,36 +23,35 @@
       padding: 0;
     }
     body {
-      font-family: var(--font-sans);
-      background-color: var(--color-bg);
+      font-family: var(--font);
+      background-color: var(--bg-light);
       color: #333;
-      line-height: 1.6;
       display: flex;
       flex-direction: column;
       min-height: 100vh;
     }
     header {
-      background-color: var(--color-white);
-      border-bottom: 1px solid var(--color-gray-light);
+      background: var(--bg-white);
+      border-bottom: 1px solid var(--gray-light);
       padding: 1rem 2rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
     }
-    header .logo {
+    .logo {
       font-size: 1.5rem;
       font-weight: 700;
       color: #000;
       text-decoration: none;
     }
-    header nav a {
+    nav a {
       margin-left: 1.5rem;
-      text-decoration: none;
+      color: var(--gray);
       font-weight: 600;
-      color: var(--color-gray);
+      text-decoration: none;
       transition: color 0.3s;
     }
-    header nav a:hover {
+    nav a:hover {
       color: #000;
     }
     main {
@@ -59,33 +59,33 @@
       max-width: 900px;
       width: 100%;
       margin: 2rem auto;
-      padding: 1rem;
+      padding: 0 1rem;
     }
     .hero {
       text-align: center;
       margin-bottom: 2rem;
     }
     .hero h1 {
-      font-size: 2rem;
+      font-size: 2.25rem;
       font-weight: 700;
       color: #000;
       margin-bottom: 0.5rem;
     }
     .hero p {
       font-size: 1rem;
-      color: var(--color-gray);
+      color: var(--gray);
     }
     .form-container {
-      background-color: var(--color-white);
-      border: 1px solid var(--color-gray-light);
+      background: var(--bg-white);
+      border: 1px solid var(--gray-light);
       border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
       overflow: hidden;
     }
     .form-responsive {
       position: relative;
       width: 100%;
-      padding-top: 56.25%; /* 16:9 Aspect Ratio */
+      padding-top: 56.25%; /* 16:9 */
     }
     .form-responsive iframe {
       position: absolute;
@@ -97,31 +97,34 @@
     }
     .back-link {
       display: inline-block;
-      margin-top: 1.5rem;
+      margin: 1.5rem auto;
       font-size: 0.9rem;
-      color: var(--color-primary);
+      color: var(--primary);
       text-decoration: none;
-      border-bottom: 1px solid var(--color-primary);
+      border-bottom: 1px solid var(--primary);
       transition: color 0.3s;
     }
     .back-link:hover {
-      color: var(--color-primary-dark);
+      color: var(--primary-dark);
     }
     footer {
-      background-color: var(--color-white);
+      background: var(--bg-white);
       text-align: center;
       padding: 1rem;
-      border-top: 1px solid var(--color-gray-light);
+      border-top: 1px solid var(--gray-light);
       font-size: 0.9rem;
-      color: var(--color-gray);
+      color: var(--gray);
     }
     @media (max-width: 600px) {
       header {
         flex-direction: column;
         align-items: flex-start;
       }
-      header nav {
+      nav {
         margin-top: 0.5rem;
+      }
+      .hero h1 {
+        font-size: 1.75rem;
       }
     }
   </style>
@@ -141,14 +144,11 @@
     </section>
     <section class="form-container">
       <div class="form-responsive">
-        <iframe src="https://airtable.com/embed/appxk6WzoRfH7WKhG/pagIGRh8Xtj6atU89/form"
-                title="Embed de radicación de facturas"></iframe>
+        <iframe src="https://airtable.com/embed/appxk6WzoRfH7WKhG/pagIGRh8Xtj6atU89/form" title="Radicación de Facturas"></iframe>
       </div>
     </section>
-    <div style="text-align: center;">
-      <a class="back-link" href="https://www.paramopresenta.com/" target="_blank">
-        ← Volver al sitio principal
-      </a>
+    <div style="text-align:center;">
+      <a class="back-link" href="https://www.paramopresenta.com/" target="_blank">← Volver al sitio principal</a>
     </div>
   </main>
   <footer>
